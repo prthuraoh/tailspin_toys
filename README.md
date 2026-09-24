@@ -74,6 +74,18 @@ npm run lint
 
 ESLint is also run automatically in CI on pull requests to `main`.
 
+## Coding standards
+
+Repository coding standards are maintained in [`.github/instructions/`](./.github/instructions/):
+
+- [`ui.instructions.md`](./.github/instructions/ui.instructions.md) — component APIs, comments, accessibility, and testability
+- [`astro.instructions.md`](./.github/instructions/astro.instructions.md) — Astro pages, layouts, props contracts, and TypeScript
+- [`drizzle.instructions.md`](./.github/instructions/drizzle.instructions.md) — data-layer helpers, TSDoc/JSDoc, and database conventions
+- [`style.instructions.md`](./.github/instructions/style.instructions.md) — Tailwind CSS and visual styling
+- [`unit-tests.instructions.md`](./.github/instructions/unit-tests.instructions.md) and [`playwright.instructions.md`](./.github/instructions/playwright.instructions.md) — test conventions
+
+In short, comments explain intent rather than restating code; exported data-layer functions document their purpose, parameters, and return values; reusable Astro components document their `Props` interfaces; and TypeScript uses consistent four-space indentation, semicolons, single quotes, and trailing commas in multiline constructs. ESLint enforces these formatting rules and explicit module-boundary types in `db/` and `src/lib/`.
+
 ## Type checking
 
 The project runs on **TypeScript 7** (the native Go compiler, `tsgo`) for type checking, adopted side-by-side via the [`@typescript/native-preview`](https://www.npmjs.com/package/@typescript/native-preview) package. The classic `typescript` package is intentionally kept at v6 so ESLint + `typescript-eslint` and `astro check` keep working unchanged — TypeScript 7's programmatic API isn't ready for those tools yet.
