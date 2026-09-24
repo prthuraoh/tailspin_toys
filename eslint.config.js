@@ -40,4 +40,24 @@ export default [
       parser: tseslint.parser,
     },
   },
+
+  // Public data-layer boundaries must be explicit and documented by convention.
+  {
+    files: ["db/**/*.ts", "src/lib/**/*.ts"],
+    rules: {
+      "comma-dangle": ["error", "always-multiline"],
+      "@typescript-eslint/explicit-module-boundary-types": [
+        "error",
+        {
+          allowArgumentsExplicitlyTypedAsAny: false,
+          allowDirectConstAssertionInArrowFunctions: true,
+          allowHigherOrderFunctions: true,
+          allowTypedFunctionExpressions: true,
+        },
+      ],
+      indent: ["error", 4, { SwitchCase: 1 }],
+      quotes: ["error", "single", { allowTemplateLiterals: true, avoidEscape: true }],
+      semi: ["error", "always"],
+    },
+  },
 ];
